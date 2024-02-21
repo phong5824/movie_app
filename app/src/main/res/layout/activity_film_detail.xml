@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context="com.example.movie_app.FilmDetailActivity">
+
+        <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="29dp">
+
+            <ImageView
+                android:id="@+id/imageFilm"
+                android:layout_width="match_parent"
+                android:layout_height="280dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/pink" />
+
+            <LinearLayout
+                android:id="@+id/filmInfoLayout"
+                android:layout_width="match_parent"
+                android:layout_height="260dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="150dp"
+                android:layout_marginRight="40dp"
+                android:background="@drawable/round_background"
+                android:orientation="vertical"
+                android:weightSum="8">
+
+                <TextView
+                    android:id="@+id/titleFilm"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="15dp"
+                    android:text="Ant Man and the Wasp"
+                    android:fontFamily="@font/font_family"
+                    android:textAlignment="center"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <TableLayout
+                    android:id="@+id/status"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="60dp"
+                    android:layout_marginRight="60dp"
+                    >
+                    <TableRow>
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:id="@+id/iconStar"
+                                android:layout_width="15dp"
+                                android:layout_height="15dp"
+                                android:layout_alignParentStart="true"
+                                android:layout_centerVertical="true"
+                                android:src="@drawable/star"
+
+                                />
+
+                            <TextView
+                                android:id="@+id/ratingFilm"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_toEndOf="@+id/iconStar"
+                                android:layout_marginLeft="3dp"
+                                android:text="9.5"
+                                android:fontFamily="@font/font_family"
+                                android:textSize="12sp"
+                                android:textAlignment="center" />
+                        </RelativeLayout>
+
+                        <!-- Booked -->
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:id="@+id/iconTime"
+                                android:layout_width="15dp"
+                                android:layout_height="15dp"
+                                android:layout_alignParentStart="true"
+                                android:layout_centerVertical="true"
+                                android:src="@drawable/clock"
+
+                                />
+
+                            <TextView
+                                android:id="@+id/timeFilm"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_toEndOf="@+id/iconTime"
+                                android:layout_marginLeft="3dp"
+                                android:text="1h30"
+                                android:fontFamily="@font/font_family"
+                                android:textSize="12sp"
+                                android:textAlignment="center" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:id="@+id/iconVideo"
+                                android:layout_width="15dp"
+                                android:layout_height="15dp"
+                                android:layout_alignParentStart="true"
+                                android:layout_centerVertical="true"
+                                android:src="@drawable/video"
+
+                                />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_toEndOf="@+id/iconVideo"
+                                android:layout_marginLeft="3dp"
+                                android:text="IMAX"
+                                android:fontFamily="@font/font_family"
+                                android:textSize="12sp"
+                                android:textAlignment="center" />
+                        </RelativeLayout>
+
+                    </TableRow>
+                </TableLayout>
+
+
+                <View
+                    android:id="@+id/separatorLine"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@id/status"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="35dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="#E0E0E0" />
+
+                <LinearLayout
+                    android:id="@+id/allMoviesSectionTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/topRatedHorizontalRecyclerView"
+                    android:orientation="horizontal">
+
+                    <!-- Original TextView -->
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="1"
+                        android:text="Synopsis"
+                        android:fontFamily="@font/font_family"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <!-- New TextView for the additional text -->
+                    <TextView
+                        android:id="@+id/textGenres"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:maxLines="2"
+                        android:fontFamily="@font/font_family"
+                        android:ellipsize="end"
+                    android:padding="10dp"
+                    android:text="Action, Adventure"
+                    android:textColor="#444444"
+                    android:textSize="10sp"
+                    android:scrollbars="vertical"
+                    />
+                </LinearLayout>
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="114dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:scrollbars="none">
+
+                    <TextView
+                        android:id="@+id/textOverview"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#F8F8FF"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp"
+                        android:fontFamily="@font/font_family"
+                        android:text="King T'Challa returns home from America to the reclusive, technologically advanced African nation of Wakanda to serve as his country's new leader. However, T'Challa soon finds that he is challenged for the throne by factions within his own country as well as without.  Using powers reserved to Wakandan kings, T'Challa assumes the Black Panther mantel to join with girlfriend Nakia, the queen-mother, his princess-kid sister,  members of the Dora Milaje (the Wakandan \specialforces\), and an American secret agent, to prevent Wakanda from being dragged into a world war."
+                        android:textSize="15dp" />
+
+                </ScrollView>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="130dp"
+                    android:layout_marginRight="130dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/border_selector"
+                    android:src="@drawable/down"
+
+                    />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+            android:id="@+id/showtimesLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/filmInfoLayout"
+            android:layout_marginTop="16dp"
+            android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:text="Select Date"
+                    android:textSize="15dp"
+                    android:fontFamily="@font/font_family"
+                    android:textStyle="bold"
+                    />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/dateRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                        android:paddingTop="20dp"
+                        android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:scrollbars="none" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:text="Select Time"
+                    android:textSize="15dp"
+                    android:fontFamily="@font/font_family"
+                    android:textStyle="bold"
+                    />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/timeRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="20dp"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:scrollbars="none" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:text="Select Theatre"
+                    android:textSize="15dp"
+                    android:fontFamily="@font/font_family"
+                    android:textStyle="bold"
+                    />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/theatreRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="20dp"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:scrollbars="none" />
+
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/nextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="16dp"
+                    android:src="@drawable/next"
+                    app:fabSize="normal"
+                    app:borderWidth="0dp"
+                    app:elevation="6dp"/>
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/undoIcon"
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:clickable="true"
+                android:onClick="onUndoClick"
+                android:src="@drawable/back" />
+        </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
+

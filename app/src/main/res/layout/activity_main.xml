@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="16dp"
+        android:paddingTop="16dp"
+        android:paddingRight="16dp"
+        android:paddingBottom="16dp"
+        tools:context=".MainActivity">
+
+
+
+        <!-- Header Section -->
+        <LinearLayout
+            android:id="@+id/headerLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!-- Left side of header -->
+            <LinearLayout
+                android:id="@+id/leftHeader"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <!-- Existing TextViews in header -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Now Showing"
+                    android:fontFamily="@font/font_family"
+                    android:textSize="25sp"
+                    android:textStyle="bold"
+                    android:textColor="#000000" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Movies in VietNam"
+                    android:fontFamily="@font/font_family"
+                    android:textSize="16sp"
+                    android:textColor="#000000" />
+            </LinearLayout>
+
+            <!-- Right side of header (Avatar and Menu) -->
+            <LinearLayout
+                android:id="@+id/rightHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <!-- Add your user avatar here -->
+                <ImageView
+                    android:id="@+id/userAvatar"
+                    android:layout_width="45dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/user"
+                    android:layout_marginRight="2dp" />
+
+                <Button
+                    android:id="@+id/logoutButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center_vertical"
+                    android:text="Log out"
+                    android:textSize="10sp"
+                    android:fontFamily="@font/font_family"
+                    android:backgroundTint="#3062EF"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginRight="3dp"
+                    android:layout_marginLeft="3dp"
+                    android:visibility="gone"
+                />
+
+                <!-- Add your menu button here -->
+                <ImageView
+                    android:id="@+id/menuButton"
+                    android:layout_width="30dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/menus" />
+            </LinearLayout>
+        </LinearLayout>
+
+    <!-- Separator Line -->
+    <View
+        android:id="@+id/separatorLine"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:layout_below="@id/headerLayout"
+        android:background="#E0E0E0" />
+
+        <com.jackandphantom.carouselrecyclerview.CarouselRecyclerview
+            android:layout_width="match_parent"
+            android:layout_height="450dp"
+            android:layout_below="@+id/separatorLine"
+            android:id="@+id/imageSlider"
+            />
+
+
+    <TextView
+        android:id="@+id/topRatedSectionTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Top Rated Movies"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/font_family"
+        android:padding="10dp"
+        android:layout_below="@id/imageSlider"
+        android:layout_marginTop="16dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/topRatedHorizontalRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/topRatedSectionTitle"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        />
+
+    <!-- RecyclerView to display films -->
+        <LinearLayout
+            android:id="@+id/allMoviesSectionTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/topRatedHorizontalRecyclerView"
+            >
+
+            <!-- Original TextView -->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="All Movies"
+                android:textSize="20sp"
+                android:fontFamily="@font/font_family"
+                android:textStyle="bold"
+                android:padding="10dp"/>
+
+            <!-- New TextView for the additional text -->
+            <TextView
+                android:id="@+id/gotoallMovies"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="View all"
+                android:textSize="14sp"
+                android:fontFamily="@font/font_family"
+                android:textColor="#0077cc"
+                android:padding="10dp"/>
+        </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_allmovie"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/allMoviesSectionTitle"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal" />
+
+
+</RelativeLayout>
+</ScrollView>

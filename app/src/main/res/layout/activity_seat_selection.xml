@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context="com.example.movie_app.FilmDetailActivity">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="30dp">
+
+            <ImageView
+                android:id="@+id/imageFilm"
+                android:layout_width="match_parent"
+                android:layout_height="280dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/pink" />
+
+            <!-- Showtimes Section -->
+            <LinearLayout
+                android:id="@+id/filmInfoLayout"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="150dp"
+                android:layout_marginRight="40dp"
+                android:background="@drawable/round_background"
+                android:orientation="vertical"
+                android:weightSum="8">
+
+                <TextView
+                    android:id="@+id/titleFilm"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="15dp"
+                    android:text="Ant Man and the Wasp"
+                    android:textAlignment="center"
+                    android:textSize="20dp"
+                    android:fontFamily="@font/font_family"
+                    android:textStyle="bold" />
+
+
+                <View
+                    android:id="@+id/separatorLine"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="35dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="#E0E0E0" />
+
+                <LinearLayout
+                    android:id="@+id/allMoviesSectionTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <!-- Original TextView -->
+                    <TextView
+                        android:id="@+id/datepick"
+                        android:layout_width="120dp"
+                        android:layout_height="30dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/border_selector"
+                        android:gravity="center"
+                        android:text="Friday, 12"
+                        android:fontFamily="@font/font_family"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <!-- New TextView for the additional text -->
+                    <TextView
+                        android:id="@+id/timepick"
+                        android:layout_width="120dp"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/border_selector"
+                        android:gravity="center"
+                        android:text="09:30 AM"
+                        android:textColor="#444444"
+                        android:fontFamily="@font/font_family"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/theatrepick"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="35dp"
+                    android:background="@drawable/border_selector"
+                    android:gravity="center"
+                    android:text="Galaxy"
+                    android:fontFamily="@font/font_family"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+            <TableLayout
+                android:id="@+id/status"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+
+                android:layout_below="@id/filmInfoLayout"
+                >
+
+                <TableRow>
+
+                    <!-- Available -->
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal">
+
+                        <ImageView
+                            android:id="@+id/iconAvailable"
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/ic_seat_available"
+
+                        />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toEndOf="@+id/iconAvailable"
+                            android:layout_marginLeft="6dp"
+                            android:text="Available"
+                            android:textSize="12sp"
+                            android:fontFamily="@font/font_family"
+                            android:textAlignment="center" />
+                    </RelativeLayout>
+
+                    <!-- Booked -->
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        >
+
+                        <ImageView
+                            android:id="@+id/iconBooked"
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/ic_seat_unavailable"
+
+                        />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toEndOf="@+id/iconBooked"
+                            android:layout_marginLeft="6dp"
+                            android:text="Booked"
+                            android:textSize="12sp"
+                            android:fontFamily="@font/font_family"
+                            android:textAlignment="center" />
+                    </RelativeLayout>
+
+                    <!-- Your Selection -->
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        >
+
+                        <ImageView
+                            android:id="@+id/iconReserved"
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/ic_seat_reserved"
+
+                        />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toEndOf="@+id/iconReserved"
+                            android:text="Your Selection"
+                            android:layout_marginLeft="6dp"
+                            android:fontFamily="@font/font_family"
+                            android:textSize="12sp"
+                            android:textAlignment="center" />
+                    </RelativeLayout>
+
+                </TableRow>
+            </TableLayout>
+
+
+
+            <ImageView
+                android:id="@+id/undoIcon"
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:clickable="true"
+                android:onClick="onUndoClick"
+                android:src="@drawable/back" />
+
+            <TextView
+                android:id="@+id/screenid"
+                android:layout_below="@id/status"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/border_selector"
+                android:gravity="center"
+                android:text="Screen"
+                android:fontFamily="@font/font_family"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+
+            <GridLayout
+                android:id="@+id/TableSeats"
+                android:layout_width="match_parent"
+                android:layout_height="240dp"
+                android:layout_below="@id/screenid"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:columnCount="8"
+                android:rowCount="5"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/screenid" >
+
+            </GridLayout>
+
+
+            <LinearLayout
+                android:id="@+id/Totals"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/TableSeats"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:background="@drawable/border_selector"
+                android:layout_weight="4"
+                android:orientation="horizontal">
+
+                <!-- Hiển thị tổng số lượng vé đã chọn -->
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center">
+                <ImageView
+                    android:id="@+id/iconTicket"
+                    android:layout_width="40dp"
+                    android:layout_height="30dp"
+                    android:gravity="center"
+                    android:src="@drawable/ticket"
+                    />
+                <TextView
+                    android:id="@+id/txtTotalTickets"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/iconTicket"
+                    android:layout_marginTop="3dp"
+                    android:gravity="center"
+                    android:text="x 0"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/font_family"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
+                </RelativeLayout>
+
+                <!-- Hiển thị tổng giá vé -->
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:layout_marginRight="16dp"
+                        android:background="#000" />
+
+                    <TextView
+                        android:id="@+id/txtTotalPrice"
+                        android:layout_width="100dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="20dp"
+                        android:gravity="center"
+                        android:text="Total Price $0.00"
+                        android:textColor="#000000"
+                        android:fontFamily="@font/font_family"
+                        android:textSize="18sp" />
+
+
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/reserverButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:src="@drawable/next"
+                    app:fabSize="normal"
+                    app:borderWidth="0dp"
+                    app:elevation="6dp"/>
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
